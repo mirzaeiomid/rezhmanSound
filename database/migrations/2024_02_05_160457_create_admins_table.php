@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('admins', function (Blueprint $table) {
             $table->id();
+            $table->string('fName');
+            $table->string('lName');
+            $table->string('UserName')->unique();
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->text('email_verified_at')->nullable();
+            $table->text('remember_token')->nullable();
+            $table->integer('status')->default('0');
             $table->timestamps();
         });
     }
